@@ -1,0 +1,25 @@
+.MuiContainer-root {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    & .MuiTab-root {
+        min-width: auto;
+        padding: 5px 30px;
+    }
+
+}
+
+.tabpanel {
+    width: 100%;
+}
+
+
+
+// .right_btn {
+//     margin-right: 100px;
+// }
+
+// .left_btn {
+//     margin-left: 100px;
+// }
