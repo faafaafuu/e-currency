@@ -4,17 +4,15 @@ import { makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container'
 import Button from '@material-ui/core/Button';
-import Avatar from '@material-ui/core/Avatar';
 
-import ExchangePage from '../exchange_page/exchange_page'
+import Avatar from '@material-ui/core/Avatar';
+import ExchangePage from '../ExchangePage/exchange_page'
 
 import './header.scss'
 import HeaderLogo from '../../img/e_currency_logo.png'
-import TimeLogo from '../../img/24_7.png'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -29,7 +27,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography>{children}</Typography>
+          <Container>{children}</Container>
         </Box>
       )}
     </div>
@@ -70,17 +68,28 @@ const useStyles = makeStyles((theme) => ({
   },
 
   root: {
-    backgroundColor: theme.palette.background.paper,
+    // backgroundColor: theme.palette.background.paper,
+    minHeight: 900
+
   },
   login: {
+    marginBottom: 10,
     '& > *': {
+      color: '#fff',
       margin: theme.spacing(0.6),
+      background: '#653c5a',// eslint-disable-next-line 
+      background: '-webkit-linear-gradient(to right, #30635d82, #653c5a)',  // eslint-disable-next-line 
+      background: 'linear-gradient(to right, #30635d82, #653c5a)' // eslint-disable-next-line 
     },
   },
   logo_img: {
     display: 'flex',
+    marginBottom: 10,
     '& > *': {
       margin: theme.spacing(0.5),
+      // boxShadow: '0px .1px 3px #d9dadb', 
+      cursor: 'pointer'
+      
     },
   },
 }));
@@ -95,7 +104,7 @@ export default function NavTabs() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="fixed">
       <Container className={`${classes.navbar} container`}>
           <div className={classes.logo_img}>
             <Avatar alt="e-curr" src={HeaderLogo}/>
@@ -121,7 +130,6 @@ export default function NavTabs() {
       <TabPanel className="tabpanel" value={value} index={0}>
       <ExchangePage/>
       </TabPanel>
-        <Avatar alt="e-curr" src={TimeLogo}/>
       <TabPanel className="tabpanel" value={value} index={1}>
       Правила обмена
       </TabPanel>

@@ -1,0 +1,28 @@
+div#demo-controlled-open-select {
+    display: flex;
+    border-bottom: none !important;
+    background: #fff !important;
+}
+
+.svgVal {
+    width: 100 !important;
+    height: 100 !important;
+}
+
+.MuiInput-underline:before {
+    border-bottom: none  !important;
+}
+
+.MuiListItem-root.Mui-selected, .MuiListItem-root.Mui-selected:hover, .MuiSelect-select:focus {
+    background-color: #fff;
+}
+
+#demo-controlled-open-select {
+    justify-content: center;
+}
+
+.MuiInput-underline:before { 
+    border-bottom: none !important;
+}
+
+ 
