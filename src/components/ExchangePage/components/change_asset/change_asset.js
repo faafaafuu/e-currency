@@ -4,7 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-import coin_logos from '../coin_logo/coins_data'
+import coins_data from '../coin_logo/coins_data'
 import SvgIcon from '@material-ui/core/SvgIcon'
 import './change_asset.scss'
 
@@ -30,8 +30,24 @@ const useStyles = makeStyles((theme) => ({
   chose_tic_btn: {
     display: 'flex',
   },
+  select_coins: {
+    display: 'flex',
+    flexDirection: 'column',
+  }
 
 }));
+
+const SelectCoins = () => {
+  return coins_data.map((cd) => {
+    return(
+      <MenuItem 
+      value={cd.tic} >
+      <SvgIcon component={cd.logo}/>
+      {cd.name}
+    </MenuItem>
+    )
+  })
+}
 
 export default function ControlledOpenSelect() {
   const classes = useStyles();
@@ -60,13 +76,10 @@ export default function ControlledOpenSelect() {
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
-          value={age}
+          value={10}
           onChange={handleChange}
         >
-          <MenuItem 
-          value={20} className={classes.selectBg}>
-            <SvgIcon component={coin_logos[0].logo} ></SvgIcon><p className={classes.ticker}>BTC</p></MenuItem>
-          {/* <MenuItem value={30}><Avatar></Avatar> Thirty</MenuItem> */}
+          <SelectCoins/>
         </Select>
       </FormControl>
     </div>

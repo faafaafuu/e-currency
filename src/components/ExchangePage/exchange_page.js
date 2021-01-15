@@ -16,7 +16,7 @@ import ReciveData from './components/recive_data/recive_data'
 
 
 import './exchange_page.scss'
-import coin_logos from './components/coin_logo/coins_data';
+import select_coins from './components/coin_logo/select_coins';
 
 
 const client = Binance()
