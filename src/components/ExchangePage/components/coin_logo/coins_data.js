@@ -152,7 +152,7 @@ const coin_data = [
 
         },
         {
-          name: 'LivecoinRUB',
+          name: 'Livecoin',
           tic: 'RUB',
           logo: LivecoinRUB,
           currPrice: null,
@@ -197,7 +197,7 @@ const coin_data = [
 
         },
         {
-          name: 'PerfectMoneyUSD',
+          name: 'Perfect Money',
           tic: 'USD',
           logo: PerfectMoneyUSD,
           currPrice: null,
@@ -215,7 +215,7 @@ const coin_data = [
 
         },
         {
-          name: 'Privat24UAH',
+          name: 'Privat24',
           tic: 'UAH',
           logo: Privat24UAH,
           currPrice: null,
@@ -296,7 +296,7 @@ const coin_data = [
 
         },
         {
-          name: 'VisaMasterCardRUB',
+          name: 'Visa MasterCard ₽',
           tic: 'RUB',
           logo: VisaMasterCardRUB,
           currPrice: null,
@@ -305,7 +305,7 @@ const coin_data = [
 
         },
         {
-          name: 'VisaMasterCardUAH',
+          name: 'Visa MasterCard $',
           tic: 'UAH',
           logo: VisaMasterCardUAH,
           currPrice: null,
@@ -314,7 +314,7 @@ const coin_data = [
 
         },
         {
-          name: 'Webmoneyrub',
+          name: 'Webmoney',
           tic: 'RUB',
           logo: Webmoneyrub,
           currPrice: null,
@@ -323,7 +323,7 @@ const coin_data = [
 
         },
         {
-          name: 'WhitebitUSD',
+          name: 'Whitebit $',
           tic: 'USD',
           logo: WhitebitUSD,
           currPrice: null,

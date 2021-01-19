@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios'
+// import axios from 'axios'
 import Binance from 'binance-api-node'
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -14,9 +14,7 @@ import CardField from './components/echange_fields/card_field/card_field'
 import GiveData from './components/give_data/give_data'
 import ReciveData from './components/recive_data/recive_data'
 
-
 import './exchange_page.scss'
-import select_coins from './components/coin_logo/select_coins';
 
 
 const client = Binance()
@@ -92,13 +90,7 @@ export default function ExchangePage() {
    
   }, [classes])
 
-  setTimeout(() => console.log(coin_prices),1)
-
-
-
-
-  
-
+  // setTimeout(() => console.log(coin_prices),1)
 
   return (
     <div className={classes.root}>

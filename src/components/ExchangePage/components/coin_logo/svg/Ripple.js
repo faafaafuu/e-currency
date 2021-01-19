@@ -6,8 +6,7 @@ function SvgComponent(props) {
       xmlns="http://www.w3.org/2000/svg"
       width="24pt"
       height="24pt"
-      viewBox="0 0 256 256"
-      {...props}
+      viewBox="0 0 290 290"
     >
       <defs>
         <linearGradient

@@ -1,88 +1,92 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import SvgIcon from '@material-ui/core/SvgIcon'
 
 import coins_data from '../coin_logo/coins_data'
-import SvgIcon from '@material-ui/core/SvgIcon'
-import './change_asset.scss'
-
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-  button: {
-    display: 'block',
-    marginTop: theme.spacing(2),
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
   },
-  select: {
-    borderLeft: '1px solid black',
-  },
-  selectBg: {
-    backgroundColor: '#fff !important',
-  },
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-  ticker: {
-    margin: 8,
-  },
-  chose_tic_btn: {
+  form: {
+    minWidth: 100,
     display: 'flex',
+    alignItems: 'center'
   },
-  select_coins: {
-    display: 'flex',
-    flexDirection: 'column',
+  tic: {
+    padding: 20
+    
   }
-
 }));
 
-const SelectCoins = () => {
-  return coins_data.map((cd) => {
-    return(
-      <MenuItem 
-      value={cd.tic} >
-      <SvgIcon component={cd.logo}/>
-      {cd.name}
-    </MenuItem>
-    )
-  })
-}
 
-export default function ControlledOpenSelect() {
+
+export default function MultilineTextFields() {
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
-  const [open, setOpen] = React.useState(false);
+  const [currency, setCurrency] = React.useState('');
+  const [coins, setCoins] = React.useState(coins_data)
+  const [open, setOpen] = React.useState(false)
+  let cd = ''
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setCurrency(event.target.value);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleClose = (e) => {
+        setOpen(false);
+        console.log('close')
+        console.log(e.target)
   };
-
+    
   const handleOpen = () => {
     setOpen(true);
   };
 
+  const nameChanger = () => {
+
+    coins.map((c) => {
+          if(c.name == currency ) {
+            cd = c.tic
+        }
+      })
+      return cd
+  }
+  cd = nameChanger()
+  console.log(cd)
+  
+
 
   return (
-    <div className={classes.select}>
-      <FormControl className={classes.formControl}>
+    <form className={classes.root, classes.form} noValidate autoComplete="off">
+      <p className={classes.tic}>{cd}</p>
+      <div>
         <Select
-          labelId="demo-controlled-open-select-label"
-          id="demo-controlled-open-select"
+          value={currency}
           open={open}
-          onClose={handleClose}
-          onOpen={handleOpen}
-          value={10}
           onChange={handleChange}
+          variant="outlined"
+          onOpen={handleOpen}
+          onClose={handleClose}
+          // renderValue={(value) => value}
+
         >
-          <SelectCoins/>
+          {coins.map((option) => (
+            <MenuItem  value={option.name}>
+              <SvgIcon component={option.logo}/>
+              <Typography 
+              className="setTic"
+              display='block'
+              >{!open ? open : option.name}</Typography>
+            </MenuItem>
+          ))}
         </Select>
-      </FormControl>
-    </div>
+      </div>
+    </form>
   );
 }
-
