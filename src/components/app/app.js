@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 import Header from '../header/header';
 // import Footer from '../footer/footer'; 
 
 import './app.scss'
 
-export default class App extends Component {
+class App extends Component {
 
     render() {
+        console.log(this.props.test[0],'tst')
         return (
             <div className="main">
                 <Header/>
@@ -15,3 +17,10 @@ export default class App extends Component {
         )
     }
 }
+
+export default connect(
+    state => ({
+        test: state
+    }),
+    dispotch => ({})
+)(App)

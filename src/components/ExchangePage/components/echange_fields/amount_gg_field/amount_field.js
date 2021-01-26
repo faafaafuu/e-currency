@@ -6,7 +6,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 
-import ChangeAsset from '../../change_asset/change_asset';
+import coins_data from '../../coin_data/coins_data'
+import CoinList from '../../coin_list/coin_list';
 
 
 
@@ -14,9 +15,11 @@ const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
       flexWrap: 'wrap',
+      padding: 16
     },
     margin: {
       margin: theme.spacing(1),
+      // padding: 16
     },
     field: {
       display: 'flex',
@@ -37,8 +40,10 @@ export default function InputAdornments() {
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
+    return values;
   };
 
+  
     return (
         <div className={classes.root}>
             <FormControl fullWidth className={classes.margin} variant="outlined">
@@ -49,11 +54,10 @@ export default function InputAdornments() {
                 value={values.amount}
                 onChange={handleChange('amount')}
                 startAdornment={<InputAdornment className={classes.tic} position="start">
-                  <ChangeAsset/>
+                  <CoinList cl_coins_data={coins_data} sd={values.amount}/>
                 </InputAdornment>}
                 labelWidth={60}
             />
-            
             </FormControl>
         </div>
     )
